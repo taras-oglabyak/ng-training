@@ -1,0 +1,36 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Faculties</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-4">Name</th>
+                                <th class="col-md-7">Description</th>
+                                <th class="col-md-1">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="faculty in vm.faculties">
+                                <td>
+                                    <a href="#/faculties/{{faculty.faculty_id}}"><span ng-bind="faculty.faculty_name" /></a>
+                                </td>
+                                <td><span ng-bind="faculty.faculty_description" /></td>
+                                <td><button data-ng-click="vm.delete(faculty)" class="btn btn-default">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

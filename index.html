@@ -2,13 +2,19 @@
 <html ng-app="app">
 <head>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="css/main.css" />
 
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/constant.js"></script>
   <script type="text/javascript" src="js/route.js"></script>
-  <script type="text/javascript" src="js/controller/OneController.js"></script>
+
+  <script type="text/javascript" src="js/service/HttpRequestService.js"></script>
+
+  <script type="text/javascript" src="js/controller/FacultyController.js"></script>
+  <script type="text/javascript" src="js/controller/FacultyEditController.js"></script>
 
 </head>
 <body>
@@ -16,16 +22,16 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">d-tetser</a>
+          <a class="navbar-brand" href="#/">d-tetser</a>
         </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#/1">1</a></li>
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="#/faculties">faculties</a></li>
         </ul>
       </div>
     </nav>
 
-  <div class="ng-view"></div>
+  <div class="page-wrapper ng-view"></div>
 
 </body>
 </html>
