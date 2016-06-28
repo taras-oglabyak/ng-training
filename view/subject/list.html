@@ -1,0 +1,35 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h2>Subjects <a href="#/subjects/create/" class="btn btn-default">New</a></h2>
+                
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-11">Name</th>
+                                <th class="col-md-1">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="subject in vm.subjects">
+                                <td>
+                                    <a href="#/subjects/edit/{{subject.subject_id}}"><span ng-bind="subject.subject_name" /></a>
+                                </td>
+                                <td><button data-ng-click="vm.delete(subject)" class="btn btn-default">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

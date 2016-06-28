@@ -33,6 +33,19 @@
                   controller: 'SpecialityEditController',
                   controllerAs: 'vm' })
 
+            .when('/subjects', {
+                  templateUrl: '/view/subject/list.html',
+                  controller: 'SubjectController',
+                  controllerAs: 'vm' })
+            .when('/subjects/edit/:id', {
+                  templateUrl: '/view/subject/entity.html',
+                  controller: 'SubjectEditController',
+                  controllerAs: 'vm' })
+            .when('/subjects/create/', {
+                  templateUrl: '/view/subject/entity.html',
+                  controller: 'SubjectEditController',
+                  controllerAs: 'vm' })
+
 
             .otherwise({redirectTo: '/'});
     });
