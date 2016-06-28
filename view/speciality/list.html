@@ -1,0 +1,37 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h2>Specialities <a href="#/specialities/create/" class="btn btn-default">New</a></h2>
+                
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-7">Name</th>
+                                <th class="col-md-4">Code</th>
+                                <th class="col-md-1">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="speciality in vm.specialities">
+                                <td>
+                                    <a href="#/specialities/edit/{{speciality.speciality_id}}"><span ng-bind="speciality.speciality_name" /></a>
+                                </td>
+                                <td><span ng-bind="speciality.speciality_code" /></td>
+                                <td><button data-ng-click="vm.delete(speciality)" class="btn btn-default">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

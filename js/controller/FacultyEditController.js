@@ -29,7 +29,7 @@
 
 };
 
-facultyEditController.$inject = ['$routeParams', '$location', 'httpRequest', 'message'];
-angular.module('app').controller('FacultyEditController', facultyEditController);
+    facultyEditController.$inject = ['$routeParams', '$location', 'httpRequest', 'message'];
+    angular.module('app').controller('FacultyEditController', facultyEditController);
 
 })();

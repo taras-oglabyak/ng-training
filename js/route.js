@@ -11,15 +11,26 @@
                   templateUrl: '/view/faculty/list.html',
                   controller: 'FacultyController',
                   controllerAs: 'vm' })
-
             .when('/faculties/edit/:id', {
                   templateUrl: '/view/faculty/entity.html',
                   controller: 'FacultyEditController',
                   controllerAs: 'vm' })
-
-             .when('/faculties/create/', {
+            .when('/faculties/create/', {
                   templateUrl: '/view/faculty/entity.html',
                   controller: 'FacultyEditController',
+                  controllerAs: 'vm' })
+
+            .when('/specialities', {
+                  templateUrl: '/view/speciality/list.html',
+                  controller: 'SpecialityController',
+                  controllerAs: 'vm' })
+            .when('/specialities/edit/:id', {
+                  templateUrl: '/view/speciality/entity.html',
+                  controller: 'SpecialityEditController',
+                  controllerAs: 'vm' })
+            .when('/specialities/create/', {
+                  templateUrl: '/view/speciality/entity.html',
+                  controller: 'SpecialityEditController',
                   controllerAs: 'vm' })
 
 
