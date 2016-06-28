@@ -33,7 +33,7 @@
                     </fieldset>
 
                     <div class="form-action">
-                        <input type="submit" class="btn btn-success" ng-disabled="facultyForm.$dirty && facultyForm.$invalid">
+                        <input type="submit" ng-click="vm.isUpdate? vm.update(vm.faculty) : vm.create(vm.faculty)" class="btn btn-success" ng-disabled="facultyForm.$dirty && facultyForm.$invalid">
                     </div>
                 </form>
 

@@ -4,7 +4,8 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                <h3>Faculties</h3>
+                <h2>Faculties <a href="#/faculties/create/" class="btn btn-default">New</a></h2>
+                
             </div>
 
             <div class="panel-body">
@@ -20,7 +21,7 @@
                         <tbody>
                             <tr ng-repeat="faculty in vm.faculties">
                                 <td>
-                                    <a href="#/faculties/{{faculty.faculty_id}}"><span ng-bind="faculty.faculty_name" /></a>
+                                    <a href="#/faculties/edit/{{faculty.faculty_id}}"><span ng-bind="faculty.faculty_name" /></a>
                                 </td>
                                 <td><span ng-bind="faculty.faculty_description" /></td>
                                 <td><button data-ng-click="vm.delete(faculty)" class="btn btn-default">Delete</button></td>

@@ -12,7 +12,12 @@
                   controller: 'FacultyController',
                   controllerAs: 'vm' })
 
-            .when('/faculties/:id', {
+            .when('/faculties/edit/:id', {
+                  templateUrl: '/view/faculty/entity.html',
+                  controller: 'FacultyEditController',
+                  controllerAs: 'vm' })
+
+             .when('/faculties/create/', {
                   templateUrl: '/view/faculty/entity.html',
                   controller: 'FacultyEditController',
                   controllerAs: 'vm' })
