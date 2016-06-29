@@ -15,7 +15,7 @@
                         <input type="hidden" name="speciality_id" ng-value="vm.speciality.speciality_id" />
 
                         <div class="form-group" ng-class="{ 'has-error': specialityForm.name.$dirty && specialityForm.name.$invalid }">
-                            <label class="col-xs-3 control-label"><p class="text-left">Name: *</p></label>
+                            <label class="col-xs-2 control-label"><p class="text-left">Name: *</p></label>
                             <div class="col-xs-5">
                                 <input type="text" class="form-control" name="name" ng-model="vm.speciality.speciality_name" required>
                                 <span class="has-error has-feedback" ng-show="specialityForm.name.$dirty && specialityForm.name.$invalid">The name is required.</span>
@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="form-group" ng-class="{ 'has-error': specialityForm.code.$dirty &&specialityForm.code.$invalid }">
-                            <label class="col-xs-3 control-label"><p class="text-left">Code: *</p></label>
+                            <label class="col-xs-2 control-label"><p class="text-left">Code: *</p></label>
                             <div class="col-xs-5">
                                 <input type="text" class="form-control" name="code" ng-model="vm.speciality.speciality_code" required>
                                 <span class="has-error has-feedback" ng-show="specialityForm.code.$dirty && specialityForm.code.$invalid">The code is required.</span>

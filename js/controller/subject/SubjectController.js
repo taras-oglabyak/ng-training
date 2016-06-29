@@ -19,7 +19,7 @@
                     message.erorr('ERROR!!!');
                 });
             }
-        }
+        };
 
     };
 

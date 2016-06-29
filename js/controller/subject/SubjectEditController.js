@@ -27,7 +27,7 @@
             });
         };
 
-};
+    };
 
     subjectEditController.$inject = ['$routeParams', '$location', 'httpRequest', 'message'];
     angular.module('app').controller('SubjectEditController', subjectEditController);

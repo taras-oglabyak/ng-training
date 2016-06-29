@@ -3,3 +3,8 @@
     min-height: 568px;
     background-color: #fff;
 }
+
+.resize-vertical {
+    resize: vertical;
+}
+

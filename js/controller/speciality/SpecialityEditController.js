@@ -27,7 +27,7 @@
             });
         };
 
-};
+    };
 
     specialityEditController.$inject = ['$routeParams', '$location', 'httpRequest', 'message'];
     angular.module('app').controller('SpecialityEditController', specialityEditController);

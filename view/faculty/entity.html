@@ -15,7 +15,7 @@
                         <input type="hidden" name="faculty_id" ng-value="vm.faculty.faculty_id" />
 
                         <div class="form-group" ng-class="{ 'has-error': facultyForm.name.$dirty && facultyForm.name.$invalid }">
-                            <label class="col-xs-3 control-label"><p class="text-left">Name: *</p></label>
+                            <label class="col-xs-2 control-label"><p class="text-left">Name: *</p></label>
                             <div class="col-xs-5">
                                 <input type="text" class="form-control" name="name" ng-model="vm.faculty.faculty_name" required>
                                 <span class="has-error has-feedback" ng-show="facultyForm.name.$dirty && facultyForm.name.$invalid">The name is required.</span>
@@ -23,9 +23,9 @@
                         </div>
 
                         <div class="form-group" ng-class="{ 'has-error': facultyForm.description.$dirty &&facultyForm.description.$invalid }">
-                            <label class="col-xs-3 control-label"><p class="text-left">Description: *</p></label>
+                            <label class="col-xs-2 control-label"><p class="text-left">Description: *</p></label>
                             <div class="col-xs-5">
-                                <input type="text" class="form-control" name="description" ng-model="vm.faculty.faculty_description" required>
+                                <textarea class="form-control resize-vertical" rows="5" name="description" ng-model="vm.faculty.faculty_description" required></textarea>
                                 <span class="has-error has-feedback" ng-show="facultyForm.description.$dirty && facultyForm.description.$invalid">The description is required.</span>
                             </div>
                         </div>
