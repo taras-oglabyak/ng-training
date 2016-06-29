@@ -1,0 +1,54 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Group</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form name="groupForm" class="form-horizontal" novalidate>
+                    <fieldset>
+
+                        <input type="hidden" name="group_id" ng-value="vm.group.group_id" />
+
+                        <div class="form-group" ng-class="{ 'has-error': groupForm.name.$dirty && groupForm.name.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Name: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="name" ng-model="vm.group.group_name" required>
+                                <span class="has-error has-feedback" ng-show="groupForm.name.$dirty && groupForm.name.$invalid">The name is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': groupForm.faculty.$dirty && groupForm.faculty.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Faculty: *</p></label>
+                            <div class="col-xs-5">
+                                <select ng-model="vm.group.faculty_id" ng-options="faculty.faculty_id as faculty.faculty_name for faculty in vm.faculties" class="form-control" name="faculty" required>
+                                    <option value="">Select..</option></select>
+                                    <span class="has-error has-feedback" ng-show="groupForm.faculty.$dirty && groupForm.faculty.$invalid">The faculty is required.</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': groupForm.speciality.$dirty && groupForm.speciality.$invalid }">
+                                <label class="col-xs-2 control-label"><p class="text-left">Speciality: *</p></label>
+                                <div class="col-xs-5">
+                                    <select ng-model="vm.group.speciality_id" ng-options="speciality.speciality_id as speciality.speciality_name for speciality in vm.specialities" class="form-control" name="speciality" required>
+                                        <option value="">Select..</option></select>
+                                        <span class="has-error has-feedback" ng-show="groupForm.speciality.$dirty && groupForm.speciality.$invalid">The speciality is required.</span>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+
+                            <div class="form-action">
+                                <input type="submit" ng-click="vm.isUpdate? vm.update(vm.group) : vm.create(vm.group)" class="btn btn-success" ng-disabled="groupForm.$dirty && groupForm.$invalid">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>

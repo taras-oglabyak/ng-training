@@ -46,6 +46,19 @@
                   controller: 'SubjectEditController',
                   controllerAs: 'vm' })
 
+            .when('/groups', {
+                  templateUrl: '/view/group/list.html',
+                  controller: 'GroupController',
+                  controllerAs: 'vm' })
+            .when('/groups/edit/:id', {
+                  templateUrl: '/view/group/entity.html',
+                  controller: 'GroupEditController',
+                  controllerAs: 'vm' })
+            .when('/groups/create/', {
+                  templateUrl: '/view/group/entity.html',
+                  controller: 'GroupEditController',
+                  controllerAs: 'vm' })
+
 
             .otherwise({redirectTo: '/'});
     });
