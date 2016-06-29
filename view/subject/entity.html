@@ -22,6 +22,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group" ng-class="{ 'has-error': subjectForm.description.$dirty && subjectForm.description.$invalid }">
+                            <label class="col-xs-3 control-label"><p class="text-left">Description: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="description" ng-model="vm.subject.subject_description" required>
+                                <span class="has-error has-feedback" ng-show="subjectForm.description.$dirty && subjectForm.description.$invalid">The description is required.</span>
+                            </div>
+                        </div>
+
                     </fieldset>
 
                     <div class="form-action">
