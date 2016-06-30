@@ -5,7 +5,7 @@
 
             <div class="panel-heading">
                 <h2>Subjects <a href="#/subjects/create/" class="btn btn-default">New</a></h2>
-                
+                <h4>Showing {{vm.count}} results</h4>
             </div>
 
             <div class="panel-body">
@@ -19,7 +19,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="subject in vm.subjects">
+                            <tr dir-paginate="subject in vm.subjects|itemsPerPage:vm.itemsPerPageValue" total-items="vm.count">
                                 <td>
                                     <a href="#/subjects/edit/{{subject.subject_id}}"><span ng-bind="subject.subject_name" /></a>
                                 </td>
@@ -28,6 +28,12 @@
                             </tr>
                         </tbody>
                     </table>
+                    <dir-pagination-controls
+                        max-size="8"
+                        direction-links="true"
+                        boundary-links="true" 
+                        on-page-change="vm.findMany(newPageNumber)" >
+                    </dir-pagination-controls>
                 </div>
             </div>
 

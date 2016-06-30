@@ -1,13 +1,22 @@
 (function() {
     'use strict';
 
-    var subjectController = function(httpRequest, message) {
+    var subjectController = function(httpRequest, message, global) {
         var entityName = 'Subject';
         var vm = this;
 
-        httpRequest.findMany(entityName).then(function(response) {
-            vm.subjects = response.data;
+        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+
+        httpRequest.count(entityName).then(function(response) {
+            vm.count = response.data.numberOfRecords;
         });
+
+        vm.findMany = function(page) {
+            httpRequest.findMany(entityName, vm.itemsPerPageValue, vm.itemsPerPageValue * (page - 1)).then(function(response) {
+                vm.subjects = response.data;
+            });
+        };
+        vm.findMany(1);
 
         vm.delete = function(subject) {
             if (confirm('Delete dialog')) {
@@ -23,7 +32,7 @@
 
     };
 
-    subjectController.$inject = ['httpRequest', 'message'];
+    subjectController.$inject = ['httpRequest', 'message', 'global'];
     angular.module('app').controller('SubjectController', subjectController);
 
 })();

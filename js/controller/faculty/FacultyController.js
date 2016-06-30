@@ -1,13 +1,22 @@
 (function() {
     'use strict';
 
-    var facultyController = function(httpRequest, message) {
+    var facultyController = function(httpRequest, message, global) {
         var entityName = 'Faculty';
         var vm = this;
 
-        httpRequest.findMany(entityName).then(function(response) {
-            vm.faculties = response.data;
+        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+
+        httpRequest.count(entityName).then(function(response) {
+            vm.count = response.data.numberOfRecords;
         });
+
+        vm.findMany = function(page) {
+            httpRequest.findMany(entityName, vm.itemsPerPageValue, vm.itemsPerPageValue * (page - 1)).then(function(response) {
+                vm.faculties = response.data;
+            });
+        };
+        vm.findMany(1);
 
         vm.delete = function(faculty) {
             if (confirm('Delete dialog')) {
@@ -23,7 +32,7 @@
 
     };
 
-    facultyController.$inject = ['httpRequest', 'message'];
+    facultyController.$inject = ['httpRequest', 'message', 'global'];
     angular.module('app').controller('FacultyController', facultyController);
 
 })();

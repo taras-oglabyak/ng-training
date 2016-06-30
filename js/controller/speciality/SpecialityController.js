@@ -1,13 +1,22 @@
 (function() {
     'use strict';
 
-    var specialityController = function(httpRequest, message) {
+    var specialityController = function(httpRequest, message, global) {
         var entityName = 'Speciality';
         var vm = this;
 
-        httpRequest.findMany(entityName).then(function(response) {
-            vm.specialities = response.data;
+        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+
+        httpRequest.count(entityName).then(function(response) {
+            vm.count = response.data.numberOfRecords;
         });
+
+        vm.findMany = function(page) {
+            httpRequest.findMany(entityName, vm.itemsPerPageValue, vm.itemsPerPageValue * (page - 1)).then(function(response) {
+                vm.specialities = response.data;
+            });
+        };
+        vm.findMany(1);
 
         vm.delete = function(speciality) {
             if (confirm('Delete dialog')) {
@@ -23,7 +32,7 @@
 
     };
 
-    specialityController.$inject = ['httpRequest', 'message'];
+    specialityController.$inject = ['httpRequest', 'message', 'global'];
     angular.module('app').controller('SpecialityController', specialityController);
 
 })();

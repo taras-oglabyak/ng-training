@@ -5,7 +5,7 @@
 
             <div class="panel-heading">
                 <h2>Groups <a href="#/groups/create/" class="btn btn-default">New</a></h2>
-                
+                <h4>Showing {{vm.count}} results</h4>
             </div>
 
             <div class="panel-body">
@@ -18,8 +18,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- <tr ng-repeat="group in vm.groups"> -->
-                            <tr dir-paginate="group in vm.groups|itemsPerPage:5" total-items="20">
+                            <tr dir-paginate="group in vm.groups|itemsPerPage:vm.itemsPerPageValue" total-items="vm.count">
                                 <td>
                                     <a href="#/groups/edit/{{group.group_id}}"><span ng-bind="group.group_name" /></a>
                                 </td>
@@ -31,7 +30,7 @@
                         max-size="8"
                         direction-links="true"
                         boundary-links="true" 
-                        on-page-change="data.getData(newPageNumber)" >
+                        on-page-change="vm.findMany(newPageNumber)" >
                     </dir-pagination-controls>
                 </div>
             </div>
