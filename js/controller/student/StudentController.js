@@ -24,10 +24,10 @@
         vm.findMany(1);
 
         function fillStudentsData() {
-            for (var i in vm.students) {;
+            for (var i in vm.students) {
                 vm.students[i].group_name = getGroupNameById(vm.students[i].group_id);
             }
-        };
+        }
 
         function getGroupNameById(id) {
             for (var i in vm.groups) {
@@ -36,7 +36,7 @@
                 }
             }
             return null;
-        };
+        }
 
         vm.delete = function(student) {
             if (confirm('Delete dialog')) {

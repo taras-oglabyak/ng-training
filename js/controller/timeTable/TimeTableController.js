@@ -32,7 +32,7 @@
                 vm.timeTables[i].subject_name = getSubjectNameById(vm.timeTables[i].subject_id);
                 vm.timeTables[i].group_name = getGroupNameById(vm.timeTables[i].group_id);
             }
-        };
+        }
 
         function getSubjectNameById(id) {
             for (var i in vm.subjects) {
@@ -41,7 +41,7 @@
                 }
             }
             return null;
-        };
+        }
 
         function getGroupNameById(id) {
             for (var i in vm.groups) {
@@ -50,7 +50,7 @@
                 }
             }
             return null;
-        };
+        }
 
         vm.delete = function(timeTable) {
             if (confirm('Delete dialog')) {

@@ -13,7 +13,7 @@
             vm.subjects = response.data;
         });
 
-        vm.isUpdate = $routeParams.id != undefined;
+        vm.isUpdate = $routeParams.id !== undefined;
 
         if (vm.isUpdate){
             httpRequest.findOne(entityName, $routeParams.id).then(function(response) {

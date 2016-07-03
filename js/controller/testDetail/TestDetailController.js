@@ -27,7 +27,7 @@
             for (var i in vm.testDetails) {
                 vm.testDetails[i].test_name = getTestNameById(vm.testDetails[i].test_id);
             }
-        };
+        }
 
         function getTestNameById(id) {
             for (var i in vm.tests) {
@@ -36,7 +36,7 @@
                 }
             }
             return null;
-        };
+        }
 
         vm.delete = function(testDetail) {
             if (confirm('Delete dialog')) {

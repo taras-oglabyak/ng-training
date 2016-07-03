@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/taras-oglabyak/ng-training#readme",
   "devDependencies": {
-    "http-server": "^0.9.0"
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "http-server": "^0.9.0",
+    "jshint": "^2.9.2"
   }
 }

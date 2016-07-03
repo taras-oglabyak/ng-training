@@ -27,7 +27,7 @@
             for (var i in vm.tests) {
                 vm.tests[i].subject_name = getSubjectNameById(vm.tests[i].subject_id);
             }
-        };
+        }
 
         function getSubjectNameById(id) {
             for (var i in vm.subjects) {
@@ -36,7 +36,7 @@
                 }
             }
             return null;
-        };
+        }
 
         vm.delete = function(test) {
             if (confirm('Delete dialog')) {

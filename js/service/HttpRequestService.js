@@ -4,7 +4,7 @@
     var httpRequestService = function($http, $log, globalConstant) {
 
         this.findMany = function(entityName, limit, offset) {
-            var isPaginated = limit != undefined && offset != undefined;
+            var isPaginated = limit !== undefined && offset !== undefined;
             var method = isPaginated? '/getRecordsRange/' + limit + '/' + offset : '/getRecords';
             var url = globalConstant.HOST + entityName + method;
             $log.info('requested: ' + url);
@@ -20,6 +20,7 @@
 
         this.count = function(entityName) {
             var url = globalConstant.HOST + entityName + '/countRecords';
+
             return $http.get(url);
         };
 

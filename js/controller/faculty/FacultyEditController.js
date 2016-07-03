@@ -5,7 +5,7 @@
         var entityName = 'Faculty';
         var vm = this;
 
-        vm.isUpdate = $routeParams.id != undefined;
+        vm.isUpdate = $routeParams.id !== undefined;
 
         if (vm.isUpdate){
             httpRequest.findOne(entityName, $routeParams.id).then(function(response) {
