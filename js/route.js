@@ -98,6 +98,19 @@
                   controller: 'TimeTableEditController',
                   controllerAs: 'vm' })
 
+            .when('/questions', {
+                  templateUrl: '/view/question/list.html',
+                  controller: 'QuestionController',
+                  controllerAs: 'vm' })
+            .when('/questions/edit/:id', {
+                  templateUrl: '/view/question/entity.html',
+                  controller: 'QuestionEditController',
+                  controllerAs: 'vm' })
+            .when('/questions/create/', {
+                  templateUrl: '/view/question/entity.html',
+                  controller: 'QuestionEditController',
+                  controllerAs: 'vm' })
+
 
             .otherwise({redirectTo: '/'});
     });

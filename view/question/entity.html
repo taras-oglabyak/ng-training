@@ -1,0 +1,63 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Question</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form name="questionForm" class="form-horizontal" novalidate>
+                    <fieldset>
+
+                        <input type="hidden" name="question_id" ng-value="vm.question.question_id" />
+
+                        <div class="form-group" ng-class="{ 'has-error': questionForm.test_id.$dirty && questionForm.test_id.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Test: *</p></label>
+                            <div class="col-xs-5">
+                                <select ng-model="vm.question.test_id" ng-options="t.test_id as t.test_name for t in vm.tests" class="form-control" name="test_id" required>
+                                    <option value="">Select..</option></select>
+                                    <span class="has-error has-feedback" ng-show="questionForm.test_id.$dirty && questionForm.test_id.$invalid">The test is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': questionForm.question_text.$dirty && questionForm.question_text.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Question text: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="question_text" ng-model="vm.question.question_text" required>
+                                <span class="has-error has-feedback" ng-show="questionForm.question_text.$dirty && questionForm.question_text.$invalid">The question_text is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': questionForm.level.$dirty && questionForm.level.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Level: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="level" ng-model="vm.question.level" required>
+                                <span class="has-error has-feedback" ng-show="questionForm.level.$dirty && questionForm.level.$invalid">The level is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': questionForm.type.$dirty && questionForm.type.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Type: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="type" ng-model="vm.question.type" required>
+                                <span class="has-error has-feedback" ng-show="questionForm.type.$dirty && questionForm.type.$invalid">The type is required.</span>
+                            </div>
+                        </div>
+
+                        <!-- attachment here -->
+
+                        </fieldset>
+
+                        <div class="form-action">
+                            <input type="submit" ng-click="vm.isUpdate? vm.update(vm.question) : vm.create(vm.question)" class="btn btn-success" ng-disabled="questionForm.$dirty && questionForm.$invalid">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
