@@ -1,0 +1,77 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Student</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form name="studentForm" class="form-horizontal" novalidate>
+                    <fieldset>
+
+                        <input type="hidden" name="user_id" ng-value="vm.student.user_id" />
+
+                        <div class="form-group" ng-class="{ 'has-error': studentForm.gradebook_id.$dirty && studentForm.gradebook_id.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Gradebook: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="gradebook_id" ng-model="vm.student.gradebook_id" required>
+                                <span class="has-error has-feedback" ng-show="studentForm.gradebook_id.$dirty && studentForm.gradebook_id.$invalid">The gradebook_id is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': studentForm.student_surname.$dirty && studentForm.student_surname.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Surname: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="student_surname" ng-model="vm.student.student_surname" required>
+                                <span class="has-error has-feedback" ng-show="studentForm.student_surname.$dirty && studentForm.student_surname.$invalid">The student_surname is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': studentForm.student_name.$dirty && studentForm.student_name.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Name: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="student_name" ng-model="vm.student.student_name" required>
+                                <span class="has-error has-feedback" ng-show="studentForm.student_name.$dirty && studentForm.student_name.$invalid">The student_name is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': studentForm.student_fname.$dirty && studentForm.student_fname.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Patronymic: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="student_fname" ng-model="vm.student.student_fname" required>
+                                <span class="has-error has-feedback" ng-show="studentForm.student_fname.$dirty && studentForm.student_fname.$invalid">The student_fname is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': studentForm.group_id.$dirty && studentForm.group_id.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Group: *</p></label>
+                            <div class="col-xs-5">
+                                <select ng-model="vm.student.group_id" ng-options="g.group_id as g.group_name for g in vm.groups" class="form-control" name="group_id" required>
+                                    <option value="">Select..</option></select>
+                                    <span class="has-error has-feedback" ng-show="studentForm.group_id.$dirty && studentForm.group_id.$invalid">The subject is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': studentForm.plain_password.$dirty && studentForm.plain_password.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Password: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="plain_password" ng-model="vm.student.plain_password" required>
+                                <span class="has-error has-feedback" ng-show="studentForm.plain_password.$dirty && studentForm.plain_password.$invalid">The plain_password is required.</span>
+                            </div>
+                        </div>
+
+                        </fieldset>
+
+                        <div class="form-action">
+                            <input type="submit" ng-click="vm.isUpdate? vm.update(vm.student) : vm.create(vm.student)" class="btn btn-success" ng-disabled="studentForm.$dirty && studentForm.$invalid">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>

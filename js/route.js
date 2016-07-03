@@ -111,6 +111,19 @@
                   controller: 'QuestionEditController',
                   controllerAs: 'vm' })
 
+            .when('/students', {
+                  templateUrl: '/view/student/list.html',
+                  controller: 'StudentController',
+                  controllerAs: 'vm' })
+            .when('/students/edit/:id', {
+                  templateUrl: '/view/student/entity.html',
+                  controller: 'StudentEditController',
+                  controllerAs: 'vm' })
+            .when('/students/create/', {
+                  templateUrl: '/view/student/entity.html',
+                  controller: 'StudentEditController',
+                  controllerAs: 'vm' })
+
 
             .otherwise({redirectTo: '/'});
     });
