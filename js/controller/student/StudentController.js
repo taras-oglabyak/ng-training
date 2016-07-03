@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-    var studentController = function(httpRequest, message, global) {
+    var studentController = function(httpRequest, message, globalConstant, utilService) {
         var entityName = 'Student';
         var vm = this;
 
-        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+        vm.itemsPerPageValue = globalConstant.ITEMS_PER_PAGE;
 
         httpRequest.findMany('Group').then(function(response) {
             vm.groups = response.data;
@@ -44,15 +44,15 @@
                     var index = vm.students.indexOf(student);
                     vm.students.splice(index, 1);
                     message.success(entityName + ' has been removed');
-                }, function() {
-                    message.error('ERROR!!!');
+                }, function(response) {
+                    message.error(utilService.parseErrorResponse(response));
                 });
             }
         };
 
     };
 
-    studentController.$inject = ['httpRequest', 'message', 'global'];
+    studentController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('StudentController', studentController);
 
 })();

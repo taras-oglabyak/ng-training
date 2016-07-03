@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-    var timeTableController = function(httpRequest, message, global) {
+    var timeTableController = function(httpRequest, message, globalConstant, utilService) {
         var entityName = 'TimeTable';
         var vm = this;
 
-        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+        vm.itemsPerPageValue = globalConstant.ITEMS_PER_PAGE;
 
         httpRequest.findMany('Group').then(function(response) {
             vm.groups = response.data;
@@ -58,15 +58,15 @@
                     var index = vm.timeTables.indexOf(timeTable);
                     vm.timeTables.splice(index, 1);
                     message.success(entityName + ' has been removed');
-                }, function() {
-                    message.error('ERROR!!!');
+                }, function(response) {
+                    message.error(utilService.parseErrorResponse(response));
                 });
             }
         };
 
     };
 
-    timeTableController.$inject = ['httpRequest', 'message', 'global'];
+    timeTableController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('TimeTableController', timeTableController);
 
 })();

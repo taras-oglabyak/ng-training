@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-    var questionController = function(httpRequest, message, global) {
+    var questionController = function(httpRequest, message, globalConstant, utilService) {
         var entityName = 'Question';
         var vm = this;
 
-        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+        vm.itemsPerPageValue = globalConstant.ITEMS_PER_PAGE;
 
         httpRequest.findMany('Test').then(function(response) {
             vm.tests = response.data;
@@ -44,15 +44,15 @@
                     var index = vm.questions.indexOf(question);
                     vm.questions.splice(index, 1);
                     message.success(entityName + ' has been removed');
-                }, function() {
-                    message.error('ERROR!!!');
+                }, function(response) {
+                    message.error(utilService.parseErrorResponse(response));
                 });
             }
         };
 
     };
 
-    questionController.$inject = ['httpRequest', 'message', 'global'];
+    questionController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('QuestionController', questionController);
 
 })();

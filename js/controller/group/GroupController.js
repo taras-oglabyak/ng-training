@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-    var groupController = function(httpRequest, message, global) {
+    var groupController = function(httpRequest, message, globalConstant, utilService) {
         var entityName = 'Group';
         var vm = this;
 
-        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+        vm.itemsPerPageValue = globalConstant.ITEMS_PER_PAGE;
 
         httpRequest.count(entityName).then(function(response) {
             vm.count = response.data.numberOfRecords;
@@ -24,15 +24,15 @@
                     var index = vm.groups.indexOf(group);
                     vm.groups.splice(index, 1);
                     message.success(entityName + ' has been removed');
-                }, function() {
-                    message.error('ERROR!!!');
+                }, function(response) {
+                    message.error(utilService.parseErrorResponse(response));
                 });
             }
         };
 
     };
 
-    groupController.$inject = ['httpRequest', 'message', 'global'];
+    groupController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('GroupController', groupController);
 
 })();

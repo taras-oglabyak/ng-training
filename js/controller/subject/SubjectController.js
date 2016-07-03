@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-    var subjectController = function(httpRequest, message, global) {
+    var subjectController = function(httpRequest, message, globalConstant, utilService) {
         var entityName = 'Subject';
         var vm = this;
 
-        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+        vm.itemsPerPageValue = globalConstant.ITEMS_PER_PAGE;
 
         httpRequest.count(entityName).then(function(response) {
             vm.count = response.data.numberOfRecords;
@@ -24,15 +24,15 @@
                     var index = vm.subjects.indexOf(subject);
                     vm.subjects.splice(index, 1);
                     message.success(entityName + ' has been removed');
-                }, function() {
-                    message.error('ERROR!!!');
+                }, function(response) {
+                    message.error(utilService.parseErrorResponse(response));
                 });
             }
         };
 
     };
 
-    subjectController.$inject = ['httpRequest', 'message', 'global'];
+    subjectController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('SubjectController', subjectController);
 
 })();

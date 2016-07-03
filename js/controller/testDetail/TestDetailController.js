@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-    var testDetailController = function(httpRequest, message, global) {
+    var testDetailController = function(httpRequest, message, globalConstant, utilService) {
         var entityName = 'TestDetail';
         var vm = this;
 
-        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+        vm.itemsPerPageValue = globalConstant.ITEMS_PER_PAGE;
 
         httpRequest.findMany('Test').then(function(response) {
             vm.tests = response.data;
@@ -44,15 +44,15 @@
                     var index = vm.testDetails.indexOf(testDetail);
                     vm.testDetails.splice(index, 1);
                     message.success(entityName + ' has been removed');
-                }, function() {
-                    message.error('ERROR!!!');
+                }, function(response) {
+                    message.error(utilService.parseErrorResponse(response));
                 });
             }
         };
 
     };
 
-    testDetailController.$inject = ['httpRequest', 'message', 'global'];
+    testDetailController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('TestDetailController', testDetailController);
 
 })();

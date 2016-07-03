@@ -1,23 +1,23 @@
 (function() {
     'use strict';
 
-    var messageService = function(growl, global) {
+    var messageService = function(growl, globalConstant) {
 
         this.success = function(message) {
-            growl.success(message, global.GROWL_CONFIG);
+            growl.success(message, globalConstant.GROWL_CONFIG);
         };
 
         this.info = function(message) {
-            growl.info(message, global.GROWL_CONFIG);
+            growl.info(message, globalConstant.GROWL_CONFIG);
         };
 
         this.error = function(message) {
-            growl.error(message, global.GROWL_CONFIG);
+            growl.error(message, globalConstant.GROWL_CONFIG);
         };
 
     };
 
-    messageService.$inject = ['growl', 'global'];
+    messageService.$inject = ['growl', 'globalConstant'];
     angular.module('app').service('message', messageService);
 
 })();

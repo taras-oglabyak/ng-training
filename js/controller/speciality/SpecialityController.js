@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-    var specialityController = function(httpRequest, message, global) {
+    var specialityController = function(httpRequest, message, globalConstant, utilService) {
         var entityName = 'Speciality';
         var vm = this;
 
-        vm.itemsPerPageValue = global.ITEMS_PER_PAGE;
+        vm.itemsPerPageValue = globalConstant.ITEMS_PER_PAGE;
 
         httpRequest.count(entityName).then(function(response) {
             vm.count = response.data.numberOfRecords;
@@ -24,15 +24,15 @@
                     var index = vm.specialities.indexOf(speciality);
                     vm.specialities.splice(index, 1);
                     message.success(entityName + ' has been removed');
-                }, function() {
-                    message.error('ERROR!!!');
+                }, function(response) {
+                    message.error(utilService.parseErrorResponse(response));
                 });
             }
         };
 
     };
 
-    specialityController.$inject = ['httpRequest', 'message', 'global'];
+    specialityController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('SpecialityController', specialityController);
 
 })();
