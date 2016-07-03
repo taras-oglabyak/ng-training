@@ -72,6 +72,19 @@
                   controller: 'TestEditController',
                   controllerAs: 'vm' })
 
+            .when('/testDetails', {
+                  templateUrl: '/view/testDetail/list.html',
+                  controller: 'TestDetailController',
+                  controllerAs: 'vm' })
+            .when('/testDetails/edit/:id', {
+                  templateUrl: '/view/testDetail/entity.html',
+                  controller: 'TestDetailEditController',
+                  controllerAs: 'vm' })
+            .when('/testDetails/create/', {
+                  templateUrl: '/view/testDetail/entity.html',
+                  controller: 'TestDetailEditController',
+                  controllerAs: 'vm' })
+
 
             .otherwise({redirectTo: '/'});
     });

@@ -1,0 +1,61 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Test Detail</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form name="testDetailForm" class="form-horizontal" novalidate>
+                    <fieldset>
+
+                        <input type="hidden" name="id" ng-value="vm.testDetail.id" />
+
+                        <div class="form-group" ng-class="{ 'has-error': testDetailForm.test_id.$dirty && testDetailForm.test_id.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Test: *</p></label>
+                            <div class="col-xs-5">
+                                <select ng-model="vm.testDetail.test_id" ng-options="t.test_id as t.test_name for t in vm.tests" class="form-control" name="test_id" required>
+                                    <option value="">Select..</option></select>
+                                    <span class="has-error has-feedback" ng-show="testDetailForm.test_id.$dirty && testDetailForm.test_id.$invalid">The test is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testDetailForm.level.$dirty && testDetailForm.level.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Level: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="level" ng-model="vm.testDetail.level" required>
+                                <span class="has-error has-feedback" ng-show="testDetailForm.level.$dirty && testDetailForm.level.$invalid">The level is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testDetailForm.tasks.$dirty && testDetailForm.tasks.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Tasks: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="tasks" ng-model="vm.testDetail.tasks" required>
+                                <span class="has-error has-feedback" ng-show="testDetailForm.tasks.$dirty && testDetailForm.tasks.$invalid">The tasks is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testDetailForm.rate.$dirty && testDetailForm.rate.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Rate: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="rate" ng-model="vm.testDetail.rate" required>
+                                <span class="has-error has-feedback" ng-show="testDetailForm.rate.$dirty && testDetailForm.rate.$invalid">The rate is required.</span>
+                            </div>
+                        </div>
+
+                        </fieldset>
+
+                        <div class="form-action">
+                            <input type="submit" ng-click="vm.isUpdate? vm.update(vm.testDetail) : vm.create(vm.testDetail)" class="btn btn-success" ng-disabled="testDetailForm.$dirty && testDetailForm.$invalid">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>

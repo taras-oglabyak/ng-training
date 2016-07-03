@@ -1,0 +1,49 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h2>Tests <a href="#/testDetails/create/" class="btn btn-default">New</a></h2>
+                <h4>Showing {{vm.count}} results</h4>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2">Id</th>
+                                <th class="col-md-3">Test</th>
+                                <th class="col-md-1">Level</th>
+                                <th class="col-md-1">Tasks</th>
+                                <th class="col-md-1">Rate</th>
+                                <th class="col-md-1">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="testDetail in vm.testDetails|itemsPerPage:vm.itemsPerPageValue" total-items="vm.count">
+                                <td>
+                                    <a href="#/testDetails/edit/{{testDetail.id}}"><span ng-bind="testDetail.id" /></a>
+                                </td>
+                                <td><span ng-bind="testDetail.test_name" /></td>
+                                <td><span ng-bind="testDetail.level" /></td>
+                                <td><span ng-bind="testDetail.tasks" /></td>
+                                <td><span ng-bind="testDetail.rate" /></td>
+                                <td><button data-ng-click="vm.delete(testDetail)" class="btn btn-default">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true" 
+                        on-page-change="vm.findMany(newPageNumber)" >
+                    </dir-pagination-controls>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
