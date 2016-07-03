@@ -1,0 +1,54 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Test</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form name="timeTableForm" class="form-horizontal" novalidate>
+                    <fieldset>
+
+                        <input type="hidden" name="timeTable_id" ng-value="vm.timeTable.timetable_id" />
+
+                        <div class="form-group" ng-class="{ 'has-error': timeTableForm.group_id.$dirty && timeTableForm.group_id.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Group: *</p></label>
+                            <div class="col-xs-5">
+                                <select ng-model="vm.timeTable.group_id" ng-options="g.group_id as g.group_name for g in vm.groups" class="form-control" name="group_id" required>
+                                    <option value="">Select..</option></select>
+                                    <span class="has-error has-feedback" ng-show="timeTableForm.group_id.$dirty && timeTableForm.group_id.$invalid">The subject is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': timeTableForm.subject_id.$dirty && timeTableForm.subject_id.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Subject: *</p></label>
+                            <div class="col-xs-5">
+                                <select ng-model="vm.timeTable.subject_id" ng-options="s.subject_id as s.subject_name for s in vm.subjects" class="form-control" name="subject_id" required>
+                                    <option value="">Select..</option></select>
+                                    <span class="has-error has-feedback" ng-show="timeTableForm.subject_id.$dirty && timeTableForm.subject_id.$invalid">The subject is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': timeTableForm.event_date.$dirty && timeTableForm.event_date.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Event date: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="event_date" ng-model="vm.timeTable.event_date" required>
+                                <span class="has-error has-feedback" ng-show="timeTableForm.event_date.$dirty && timeTableForm.event_date.$invalid">The event_date is required.</span>
+                            </div>
+                        </div>
+
+                        </fieldset>
+
+                        <div class="form-action">
+                            <input type="submit" ng-click="vm.isUpdate? vm.update(vm.timeTable) : vm.create(vm.timeTable)" class="btn btn-success" ng-disabled="timeTableForm.$dirty && timeTableForm.$invalid">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>

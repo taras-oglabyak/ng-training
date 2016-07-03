@@ -85,6 +85,19 @@
                   controller: 'TestDetailEditController',
                   controllerAs: 'vm' })
 
+            .when('/timeTables', {
+                  templateUrl: '/view/timeTable/list.html',
+                  controller: 'TimeTableController',
+                  controllerAs: 'vm' })
+            .when('/timeTables/edit/:id', {
+                  templateUrl: '/view/timeTable/entity.html',
+                  controller: 'TimeTableEditController',
+                  controllerAs: 'vm' })
+            .when('/timeTables/create/', {
+                  templateUrl: '/view/timeTable/entity.html',
+                  controller: 'TimeTableEditController',
+                  controllerAs: 'vm' })
+
 
             .otherwise({redirectTo: '/'});
     });

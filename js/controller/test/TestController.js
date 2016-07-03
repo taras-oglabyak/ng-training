@@ -45,7 +45,7 @@
                     vm.tests.splice(index, 1);
                     message.success(entityName + ' has been removed');
                 }, function() {
-                    message.erorr('ERROR!!!');
+                    message.error('ERROR!!!');
                 });
             }
         };
