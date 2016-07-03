@@ -1,0 +1,76 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Test</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form name="testForm" class="form-horizontal" novalidate>
+                    <fieldset>
+
+                        <input type="hidden" name="test_id" ng-value="vm.test.test_id" />
+
+                        <div class="form-group" ng-class="{ 'has-error': testForm.name.$dirty && testForm.name.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Name: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="name" ng-model="vm.test.test_name" required>
+                                <span class="has-error has-feedback" ng-show="testForm.name.$dirty && testForm.name.$invalid">The name is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testForm.subject_id.$dirty && testForm.subject_id.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Subject: *</p></label>
+                            <div class="col-xs-5">
+                                <select ng-model="vm.test.subject_id" ng-options="s.subject_id as s.subject_name for s in vm.subjects" class="form-control" name="subject_id" required>
+                                    <option value="">Select..</option></select>
+                                    <span class="has-error has-feedback" ng-show="testForm.subject_id.$dirty && testForm.subject_id.$invalid">The subject is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testForm.tasks.$dirty && testForm.tasks.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Tasks: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="tasks" ng-model="vm.test.tasks" required disabled>
+                                <span class="has-error has-feedback" ng-show="testForm.tasks.$dirty && testForm.tasks.$invalid">The tasks is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testForm.time_for_test.$dirty && testForm.time_for_test.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Time for test: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="time_for_test" ng-model="vm.test.time_for_test" required>
+                                <span class="has-error has-feedback" ng-show="testForm.time_for_test.$dirty && testForm.time_for_test.$invalid">The time_for_test is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testForm.enabled.$dirty && testForm.enabled.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Enabled: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="checkbox" name="enabled" ng-model="vm.test.enabled" ng-checked="vm.test.enabled == 1">
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': testForm.attempts.$dirty && testForm.attempts.$invalid }">
+                            <label class="col-xs-2 control-label"><p class="text-left">Attempts: *</p></label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="attempts" ng-model="vm.test.attempts" required>
+                                <span class="has-error has-feedback" ng-show="testForm.attempts.$dirty && testForm.attempts.$invalid">The attempts is required.</span>
+                            </div>
+                        </div>
+
+                        </fieldset>
+
+                        <div class="form-action">
+                            <input type="submit" ng-click="vm.isUpdate? vm.update(vm.test) : vm.create(vm.test)" class="btn btn-success" ng-disabled="testForm.$dirty && testForm.$invalid">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>

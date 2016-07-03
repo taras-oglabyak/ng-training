@@ -1,0 +1,51 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h2>Tests <a href="#/tests/create/" class="btn btn-default">New</a></h2>
+                <h4>Showing {{vm.count}} results</h4>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2">Name</th>
+                                <th class="col-md-3">Subject</th>
+                                <th class="col-md-1">Tasks</th>
+                                <th class="col-md-1">Time</th>
+                                <th class="col-md-1">Enabled</th>
+                                <th class="col-md-1">Attempts</th>
+                                <th class="col-md-1">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="test in vm.tests|itemsPerPage:vm.itemsPerPageValue" total-items="vm.count">
+                                <td>
+                                    <a href="#/tests/edit/{{test.test_id}}"><span ng-bind="test.test_name" /></a>
+                                </td>
+                                <td><span ng-bind="test.subject_name" /></td>
+                                <td><span ng-bind="test.tasks" /></td>
+                                <td><span ng-bind="test.time_for_test" /></td>
+                                <td><span ng-bind="test.enabled ? 'yes' : 'no'" /></td>
+                                <td><span ng-bind="test.attempts" /></td>
+                                <td><button data-ng-click="vm.delete(test)" class="btn btn-default">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true" 
+                        on-page-change="vm.findMany(newPageNumber)" >
+                    </dir-pagination-controls>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
