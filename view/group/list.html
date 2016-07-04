@@ -13,7 +13,9 @@
                     <table class="table table-hover table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th class="col-md-11">Name</th>
+                                <th class="col-md-3">Name</th>
+                                <th class="col-md-4">Faculty</th>
+                                <th class="col-md-4">Speciality</th>
                                 <th class="col-md-1">Delete</th>
                             </tr>
                         </thead>
@@ -22,6 +24,8 @@
                                 <td>
                                     <a href="#/groups/edit/{{group.group_id}}"><span ng-bind="group.group_name" /></a>
                                 </td>
+                                <td><span ng-bind="group.faculty_name" /></td>
+                                <td><span ng-bind="group.speciality_name" /></td>
                                 <td><button data-ng-click="vm.delete(group)" class="btn btn-default">Delete</button></td>
                             </tr>
                         </tbody>
