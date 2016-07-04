@@ -5,7 +5,7 @@
         $routeProvider
 
             .when('/', {
-                  templateUrl: '/view/dashboard.html',
+                  templateUrl: '/view/common/dashboard.html',
                   controller: 'DashboardController',
                   controllerAs: 'vm' })
 
@@ -127,7 +127,9 @@
                   controllerAs: 'vm' })
 
 
-            .otherwise({redirectTo: '/'});
+            .when('/t-rex', { templateUrl: '/view/common/t-rex.html' })
+
+            .otherwise({redirectTo: '/t-rex'});
     });
 
 })();
