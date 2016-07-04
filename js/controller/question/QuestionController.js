@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var questionController = function(httpRequest, message, globalConstant, utilService) {
+    var questionController = function($window, httpRequest, message, globalConstant, utilService) {
         var entityName = 'Question';
         var vm = this;
 
@@ -38,6 +38,12 @@
             return null;
         }
 
+        vm.showPhoto = function(question) {
+            if (question && question.attachment) {
+                $window.open(question.attachment, 'Image', 'width=500,height=500,resizable=1');
+            }
+        };
+
         vm.delete = function(question) {
             if (confirm('Delete dialog')) {
                 httpRequest.delete(entityName, question.question_id).then(function() {
@@ -52,7 +58,7 @@
 
     };
 
-    questionController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
+    questionController.$inject = ['$window', 'httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('QuestionController', questionController);
 
 })();

@@ -8,3 +8,15 @@
     resize: vertical;
 }
 
+.panel-color .panel-heading {
+    color: #fff;
+    background-color: #97a6aa;
+}
+
+.huge {
+    font-size: 40px;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}

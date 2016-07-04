@@ -31,16 +31,15 @@
                                 <td><span ng-bind="question.question_text" /></td>
                                 <td><span ng-bind="question.level" /></td>
                                 <td><span ng-bind="question.type" /></td>
-                                <td><span ng-bind="question.attachment ? '+' : '-'" /></td>
+                                <td>
+                                    <span ng-if="question.attachment" ng-click="vm.showPhoto(question)">Click to see</span>
+                                    <span>&nbsp;</span>
+                                </td>
                                 <td><button data-ng-click="vm.delete(question)" class="btn btn-default">Delete</button></td>
                             </tr>
                         </tbody>
                     </table>
-                    <dir-pagination-controls
-                        max-size="5"
-                        direction-links="true"
-                        boundary-links="true" 
-                        on-page-change="vm.findMany(newPageNumber)" >
+                    <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" on-page-change="vm.findMany(newPageNumber)">
                     </dir-pagination-controls>
                 </div>
             </div>

@@ -14,12 +14,12 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1">Gradebook</th>
+                                <th class="col-md-1">Photo</th>
                                 <th class="col-md-3">Surname</th>
                                 <th class="col-md-2">Name</th>
                                 <th class="col-md-2">Fname</th>
                                 <th class="col-md-1">Group</th>
                                 <th class="col-md-1">password</th>
-                                <th class="col-md-1">Photo</th>
                                 <th class="col-md-1">&nbsp;</th>
                             </tr>
                         </thead>
@@ -28,12 +28,15 @@
                                 <td>
                                     <a href="#/students/edit/{{student.user_id}}"><span ng-bind="student.gradebook_id" /></a>
                                 </td>
+                                <td>
+                                    <span ng-if="student.photo" ng-click="vm.showPhoto(student)">Click to see</span>
+                                    <span>&nbsp;</span>
+                                </td>
                                 <td><span ng-bind="student.student_surname" /></td>
                                 <td><span ng-bind="student.student_name" /></td>
                                 <td><span ng-bind="student.student_fname" /></td>
                                 <td><span ng-bind="student.group_name" /></td>
                                 <td><span ng-bind="student.plain_password" /></td>
-                                <td><span ng-bind="student.photo ? '+' : '-'" /></td>
                                 <td><button data-ng-click="vm.delete(student)" class="btn btn-default">Delete</button></td>
                             </tr>
                         </tbody>

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var studentController = function(httpRequest, message, globalConstant, utilService) {
+    var studentController = function($window, httpRequest, message, globalConstant, utilService) {
         var entityName = 'Student';
         var vm = this;
 
@@ -38,6 +38,12 @@
             return null;
         }
 
+        vm.showPhoto = function(student) {
+            if (student && student.photo) {
+                $window.open(student.photo, 'Image', 'width=500,height=500,resizable=1');
+            }
+        };
+
         vm.delete = function(student) {
             if (confirm('Delete dialog')) {
                 httpRequest.delete(entityName, student.user_id).then(function() {
@@ -52,7 +58,7 @@
 
     };
 
-    studentController.$inject = ['httpRequest', 'message', 'globalConstant', 'utilService'];
+    studentController.$inject = ['$window', 'httpRequest', 'message', 'globalConstant', 'utilService'];
     angular.module('app').controller('StudentController', studentController);
 
 })();

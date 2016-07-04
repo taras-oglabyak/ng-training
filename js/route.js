@@ -5,7 +5,9 @@
         $routeProvider
 
             .when('/', {
-                  template: '<h1>dfhsdkfhg</h1>' })
+                  templateUrl: '/view/dashboard.html',
+                  controller: 'DashboardController',
+                  controllerAs: 'vm' })
 
             .when('/faculties', {
                   templateUrl: '/view/faculty/list.html',
