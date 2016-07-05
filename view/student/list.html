@@ -29,7 +29,7 @@
                                     <a href="#/students/edit/{{student.user_id}}"><span ng-bind="student.gradebook_id" /></a>
                                 </td>
                                 <td>
-                                    <span ng-if="student.photo" ng-click="vm.showPhoto(student)">Click to see</span>
+                                    <span ng-if="student.photo" ng-click="vm.showPhoto(student)" class="cursorPointer">Click to see</span>
                                     <span>&nbsp;</span>
                                 </td>
                                 <td><span ng-bind="student.student_surname" /></td>
